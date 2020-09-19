@@ -13,7 +13,6 @@ const success = (request, response) => {
   const responseJSON = {
     message: 'Load successful',
   };
-
   respondJSON(request, response, 200, responseJSON);
 };
 
@@ -27,7 +26,6 @@ const badRequest = (request, response, params) => {
     responseJSON.id = 'badRequest';
     return respondJSON(request, response, 400, responseJSON);
   }
-
   return respondJSON(request, response, 200, responseJSON);
 };
 
@@ -41,7 +39,6 @@ const unauthorized = (request, response, params) => {
     responseJSON.id = 'unauthorized';
     return respondJSON(request, response, 401, responseJSON);
   }
-
   return respondJSON(request, response, 200, responseJSON);
 };
 
