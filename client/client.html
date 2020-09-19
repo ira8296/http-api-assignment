@@ -40,8 +40,10 @@
             }
         };
 
-        const sendAjax = (url) => {
+        const sendAjax = () => {
             console.log(url);
+            const pageSelector = document.querySelector("#page");
+            let url = pageSelector.value;
             const xhr = new XMLHttpRequest();
             
             xhr.open('GET', url);
@@ -54,11 +56,9 @@
         };
 
         const init = () => {
-            const pageSelector = document.querySelector("#page");
             const sendButton = document.querySelector("#send");
-            let url = pageSelector.value;
             
-            const makeRequest = () => sendAjax(url);
+            const makeRequest = () => sendAjax();
             
             sendButton.addEventListener('click', makeRequest);
         }
