@@ -38,17 +38,26 @@
                     content.innerHTML = `<b>Error code has not been implemented</b>`;
                     break;
             }
+            
+            if(xhr.getResponseHeader('content-type') == 'application/json'){
+                console.log(xhr.response);
+            }
+            else if(xhr.getResponseHeader('content-type') == 'text/xml'){
+                console.log(xhr.responseXML);
+            }
         };
 
         const sendAjax = () => {
             console.log(url);
             const pageSelector = document.querySelector("#page");
+            const typeSelector = document.querySelector("#type");
             let url = pageSelector.value;
+            let dataType = typeSelector.value;
             const xhr = new XMLHttpRequest();
             
             xhr.open('GET', url);
             
-            xhr.setRequestHeader("Accept", 'application/json');
+            xhr.setRequestHeader("Accept", dataType);
             
             xhr.onload = () => reponseHandler(xhr);
             

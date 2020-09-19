@@ -39,10 +39,10 @@ const unauthorized = (request, response, params) => {
   if (!params.loggedIn || params.loggedIn !== 'yes') {
     responseJSON.message = 'Missing loggedIn query parameter set to yes';
     responseJSON.id = 'unauthorized';
-    respondJSON(request, response, 401, responseJSON);
+    return respondJSON(request, response, 401, responseJSON);
   }
 
-  respondJSON(request, response, 200, responseJSON);
+  return respondJSON(request, response, 200, responseJSON);
 };
 
 const forbidden = (request, response) => {
